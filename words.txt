@@ -1,0 +1,8 @@
+right
+actor
+tiger
+touch
+super
+fruit
+grail
+train
