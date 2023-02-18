@@ -447,25 +447,9 @@ files:
     }
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/22750#comment
-status: Failed
+status: Solved
 feedback:
-  message: |
-    Wrong answer in test #7
-
-    Your output should contain &quot;The input isn&#39;t a 5-letter word.
-    Input a 5-letter word:&quot;
-
-    Please find below the output of your program during this failed test.
-    Note that the &#39;&gt;&#39; character indicates the beginning of the input line.
-
-    ---
-
-    Arguments: somewords.txt somecandidates.txt
-
-    Words Virtuoso
-    Input a 5-letter word:
-    &gt; trains
-    The input isn&#39;t a 5-letter word.
-    Input a 5-letter word:
-  time: "Thu, 16 Feb 2023 15:29:17 UTC"
+  message: Well done! You've finished the project. Select a new project on <a href="https://hyperskill.org/projects">JetBrains
+    Academy</a> to continue learning.
+  time: "Sat, 18 Feb 2023 23:48:53 UTC"
 record: -1

@@ -7,6 +7,12 @@ import java.util.SortedSet
 import kotlin.system.exitProcess
 import kotlin.random.Random
 
+
+fun green(str: String): String = "\u001B[48:5:10m$str\u001B[0m"
+fun yellow(str: String): String = "\u001B[48:5:11m$str\u001B[0m"
+fun grey(str: String): String = "\u001B[48:5:7m$str\u001B[0m"
+fun azure(str: String): String = "\u001B[48:5:14m$str\u001B[0m"
+
 fun checkWord(string: String, isSilent: Boolean = true): Boolean {
     //val regex = """\s*\w+\s*""".toRegex()
     //var word = regex.find(string)?.value ?: return false
@@ -157,10 +163,6 @@ class WordsVirtuoso() {
     }
 
     fun clueString(word: String): String {
-        fun green(str: String): String = "\u001B[48:5:10m$str\u001B[0m"
-        fun yellow(str: String): String = "\u001B[48:5:11m$str\u001B[0m"
-        fun grey(str: String): String = "\u001B[48:5:7m$str\u001B[0m"
-        fun azure(str: String): String = "\u001B[48:5:14m$str\u001B[0m"
 
         val clue = MutableList<String>(5) { "" }
         val secretSet = secretWord.toSet()
@@ -172,7 +174,7 @@ class WordsVirtuoso() {
                 clue[i] = yellow(L)
             } else {
                 clue[i] = grey(L)
-                wrongChar.add(azure(L))
+                wrongChar.add(L)
             }
         }
         guessList.add(clue.joinToString(""))
@@ -195,10 +197,10 @@ class WordsVirtuoso() {
 
         while (true) {
             println("Input a 5-letter word:")
-            print("\u001B[38:5:10m")
+            //print("\u001B[38:5:10m")
             val start = System.currentTimeMillis()
             val input = readln().lowercase()
-            print("\u001B[0m")
+            //print("\u001B[0m")
             if (input == "exit") {
                 println("The game is over.")
                 exitProcess(1)
@@ -215,6 +217,7 @@ class WordsVirtuoso() {
             }
 
             // print all the clue list in chronological order
+            println()
             val clue = clueString(input)
             guessList.forEach {
                 println(it)
@@ -232,8 +235,8 @@ class WordsVirtuoso() {
                 println("The solution was found after ${guessList.size} tries in ${duration / 1000} seconds.")
                 exitProcess(0)
             }
-
-            println(wrongChar.sorted().joinToString(""))
+            println()
+            println(azure(wrongChar.sorted().joinToString("")))
 
         }
     }
